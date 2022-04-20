@@ -1,5 +1,6 @@
-package com.example.dentistsOffice.login;
+package com.example.dentistsOffice.service;
 
+import com.example.dentistsOffice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

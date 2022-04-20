@@ -1,4 +1,4 @@
-package com.example.dentistsOffice.login;
+package com.example.dentistsOffice.loginCredentials;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

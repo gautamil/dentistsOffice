@@ -22,15 +22,15 @@ public class DomicileService implements IDomicileService {
     @Autowired
     ObjectMapper mapper;
 
-    public void saveAddress(DomicileDTO domicileDTO){
-        Domicile domicile = mapper.convertValue(domicileDTO, Domicile.class);
-        addressRepository.save(domicile);
-    }
+    //public void saveAddress(DomicileDTO domicileDTO){
+      //  Domicile domicile = mapper.convertValue(domicileDTO, Domicile.class);
+        //addressRepository.save(domicile);
+    //}
 
-    @Override
-    public void createAddress(DomicileDTO domicileDTO) {
-        saveAddress(domicileDTO);
-    }
+    //@Override
+    //public void createAddress(DomicileDTO domicileDTO) {
+        //saveAddress(domicileDTO);
+    //}
 
     @Override
     public DomicileDTO readAddress(Long id) {
@@ -42,15 +42,15 @@ public class DomicileService implements IDomicileService {
         return domicileDTO;
     }
 
-    @Override
-    public void editAddress(DomicileDTO domicileDTO) {
-        saveAddress(domicileDTO);
-    }
+    //@Override
+    //public void editAddress(DomicileDTO domicileDTO) {
+      //saveAddress(domicileDTO);
+    //}
 
-    @Override
-    public void removeAddress(Long id) {
-        addressRepository.deleteById(id);
-    }
+    //@Override
+    //public void removeAddress(Long id) {
+      //  addressRepository.deleteById(id);
+    //}
 
     @Override
     public Set<DomicileDTO> getAddresses() {

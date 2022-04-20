@@ -1,5 +1,7 @@
-package com.example.dentistsOffice.login;
+package com.example.dentistsOffice.loginCredentials;
 
+import com.example.dentistsOffice.model.Role;
+import com.example.dentistsOffice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,13 +24,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/user/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated().and()
-                .formLogin();
+        http.csrf().disable().authorizeRequests()
+                .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/appointments*").hasAnyAuthority(Role.ROLE_USER.name(), Role.ROLE_ADMIN.name())
+                .anyRequest().hasAuthority(Role.ROLE_ADMIN.name())
+                .and()
+                .httpBasic(); //permite basic authorization login en postman
     }
 
     @Override

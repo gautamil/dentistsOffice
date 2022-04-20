@@ -16,28 +16,28 @@ public class DomicileController {
     @Autowired
     IDomicileService domicileService;
 
-    @PostMapping
-    public ResponseEntity<?> createAddress(@RequestBody DomicileDTO domicileDTO){
-        domicileService.createAddress(domicileDTO);
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
+    //@PostMapping
+    //public ResponseEntity<?> createAddress(@RequestBody DomicileDTO domicileDTO){
+      //  domicileService.createAddress(domicileDTO);
+       // return ResponseEntity.ok(HttpStatus.OK);
+    //}
 
     @GetMapping("/{id}")
     public DomicileDTO getAddress(@PathVariable Long id){
         return domicileService.readAddress(id);
     }
 
-    @PutMapping
-    public ResponseEntity<?> editAddress(@RequestBody DomicileDTO domicileDTO){
-        domicileService.editAddress(domicileDTO);
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
+    //@PutMapping
+    //public ResponseEntity<?> editAddress(@RequestBody DomicileDTO domicileDTO){
+       // domicileService.editAddress(domicileDTO);
+     //   return ResponseEntity.ok(HttpStatus.OK);
+   // }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> removeAddress(@PathVariable Long id){
-        domicileService.removeAddress(id);
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
+    //@DeleteMapping("/{id}")
+    //public ResponseEntity<?> removeAddress(@PathVariable Long id){
+      //  domicileService.removeAddress(id);
+        //return ResponseEntity.ok(HttpStatus.OK);
+    //}
 
     @GetMapping
     public Collection<DomicileDTO> getAllAddresses(){

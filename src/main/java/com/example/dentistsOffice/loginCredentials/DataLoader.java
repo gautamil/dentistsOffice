@@ -1,5 +1,8 @@
-package com.example.dentistsOffice.login;
+package com.example.dentistsOffice.loginCredentials;
 
+import com.example.dentistsOffice.model.Role;
+import com.example.dentistsOffice.model.User;
+import com.example.dentistsOffice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,11 +23,10 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String password = passwordEncoder.encode("password");
-        BCryptPasswordEncoder passwordEncoder2 = new BCryptPasswordEncoder();
         String password2 = passwordEncoder.encode("password2");
 
-        userRepository.save(new User("charli", "charli", "charli@dh.com", password, Role.ADMIN));
-        userRepository.save(new User("jorgi", "jorgi", "jorgi@dh.com", password2, Role.USER));
+        userRepository.save(new User("charli", "charli", "charli@dh.com", password, Role.ROLE_ADMIN));
+        userRepository.save(new User("jorgi", "jorgi", "jorgi@dh.com", password2, Role.ROLE_USER));
     }
 
 }
