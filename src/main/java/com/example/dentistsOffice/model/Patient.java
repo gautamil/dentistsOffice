@@ -1,6 +1,8 @@
 package com.example.dentistsOffice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -8,10 +10,13 @@ import java.util.Set;
 
 @Entity
 @Table(name = "patients")
+@Getter
+@Setter
 public class Patient {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name="patient_sequence", sequenceName = "patient_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_sequence")
     private Long id;
     private int dni;
     private String name;
@@ -26,59 +31,6 @@ public class Patient {
     @JsonIgnore
     private Set<Appointment> appointments;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getDni() {
-        return dni;
-    }
-
-    public void setDni(int dni) {
-        this.dni = dni;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public LocalDate getDischarge() {
-        return discharge;
-    }
-
-    public void setDischarge(LocalDate discharge) {
-        this.discharge = discharge;
-    }
-
-    public Domicile getAddress() {
-        return address;
-    }
-
-    public void setAddress(Domicile address) {
-        this.address = address;
-    }
-
-    public Set<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(Set<Appointment> appointments) {
-        this.appointments = appointments;
+    public Patient() {
     }
 }

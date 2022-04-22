@@ -2,9 +2,13 @@ package com.example.dentistsOffice.model.DTO;
 
 import com.example.dentistsOffice.model.Dentist;
 import com.example.dentistsOffice.model.Patient;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 public class AppointmentDTO {
 
     private Long id;
@@ -12,35 +16,4 @@ public class AppointmentDTO {
     private Dentist dentist;
     private Patient patient;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    public Dentist getDentist() {
-        return dentist;
-    }
-
-    public void setDentist(Dentist dentist) {
-        this.dentist = dentist;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 }

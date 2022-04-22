@@ -13,6 +13,14 @@ public class PatientDTO {
     private Domicile address;
     private LocalDate discharge;
 
+    public PatientDTO(int dni, String name, String lastName, Domicile address, LocalDate discharge) {
+        this.dni = dni;
+        this.name = name;
+        this.lastName = lastName;
+        this.address = address;
+        this.discharge = discharge;
+    }
+
     public Long getId() {
         return id;
     }

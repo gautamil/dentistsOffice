@@ -22,15 +22,16 @@ public class DomicileService implements IDomicileService {
     @Autowired
     ObjectMapper mapper;
 
-    //public void saveAddress(DomicileDTO domicileDTO){
-      //  Domicile domicile = mapper.convertValue(domicileDTO, Domicile.class);
-        //addressRepository.save(domicile);
-    //}
+    public void saveAddress(DomicileDTO domicileDTO){
+        Domicile domicile = mapper.convertValue(domicileDTO, Domicile.class);
+        addressRepository.save(domicile);
+    }
 
-    //@Override
-    //public void createAddress(DomicileDTO domicileDTO) {
-        //saveAddress(domicileDTO);
-    //}
+    @Override
+    public DomicileDTO createAddress(DomicileDTO domicileDTO) {
+        saveAddress(domicileDTO);
+        return domicileDTO;
+    }
 
     @Override
     public DomicileDTO readAddress(Long id) {

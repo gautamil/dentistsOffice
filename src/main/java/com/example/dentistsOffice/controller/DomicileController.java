@@ -19,7 +19,7 @@ public class DomicileController {
     //@PostMapping
     //public ResponseEntity<?> createAddress(@RequestBody DomicileDTO domicileDTO){
       //  domicileService.createAddress(domicileDTO);
-       // return ResponseEntity.ok(HttpStatus.OK);
+        //return ResponseEntity.ok(HttpStatus.OK);
     //}
 
     @GetMapping("/{id}")

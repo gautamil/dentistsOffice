@@ -26,10 +26,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/h2-console/**").permitAll()
-                .antMatchers("/appointments*").hasAnyAuthority(Role.ROLE_USER.name(), Role.ROLE_ADMIN.name())
+                .antMatchers("localhost:8081/**").hasAuthority(Role.ROLE_ADMIN.name())
+                .antMatchers("/appointments**").hasAnyAuthority(Role.ROLE_USER.name(), Role.ROLE_ADMIN.name())
                 .anyRequest().hasAuthority(Role.ROLE_ADMIN.name())
                 .and()
-                .httpBasic(); //permite basic authorization login en postman
+                .httpBasic();//permite basic authorization login en postman
     }
 
     @Override

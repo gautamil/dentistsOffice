@@ -2,6 +2,7 @@ package com.example.dentistsOffice.service;
 
 import com.example.dentistsOffice.model.DTO.DentistDTO;
 import com.example.dentistsOffice.service.intface.IDentistService;
+import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +15,7 @@ class DentistServiceTest {
     private IDentistService dentistService;
 
     @Test
-    public void testCreateDentist(){
+    public void createDentistTest(){
         DentistDTO dentistDTO = new DentistDTO();
         dentistDTO.setName("Jorgito");
         dentistDTO.setLastName("Alfajor");
@@ -24,5 +25,11 @@ class DentistServiceTest {
 
         DentistDTO alfajorDentist = dentistService.readDentist(1L);
         assertTrue(alfajorDentist != null);
+    }
+
+    @Test
+    public void removeDentistTest(){
+        dentistService.removeDentist(1L);
+        assertTrue(dentistService.readDentist(1L) == null);
     }
 }
